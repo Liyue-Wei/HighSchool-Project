@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "BodyTemp", "BodyTemp\BodyTemp.pyproj", "{48E415F5-8D9B-41C3-9240-9455B3B1BF5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48E415F5-8D9B-41C3-9240-9455B3B1BF5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E415F5-8D9B-41C3-9240-9455B3B1BF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {279B865D-0751-4ED1-B19C-54F31CEB10A7}
+	EndGlobalSection
+EndGlobal

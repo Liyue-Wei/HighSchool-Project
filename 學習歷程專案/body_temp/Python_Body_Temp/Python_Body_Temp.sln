@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python_Body_Temp", "Python_Body_Temp\Python_Body_Temp.pyproj", "{140320DB-8B1E-48A1-AAE7-58D310E1A39D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{140320DB-8B1E-48A1-AAE7-58D310E1A39D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{140320DB-8B1E-48A1-AAE7-58D310E1A39D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20317535-1737-41EF-924E-5F93904E1A11}
+	EndGlobalSection
+EndGlobal
