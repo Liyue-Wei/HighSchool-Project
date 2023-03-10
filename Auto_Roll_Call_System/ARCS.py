@@ -102,19 +102,9 @@ def login():
     driver.get(url)
     driver.maximize_window()
 
-def menu():   
-    direct_path = ("/User_DATA/ARCS_menu.pyw")
-    file_path = path_function(direct_path)
-    os.system(file_path)
-
 def guide():
     driver.get("https://hackmd.io/@K3S12-Python-Studio/ARCS")
     driver.maximize_window()
-
-def Eng_Ver():
-    direct_path = ("/ARCS_GUI_Eng.pyw")
-    file_path = path_function(direct_path)
-    os.system(file_path)
 
 def win_close():
     driver.minimize_window()
