@@ -34,5 +34,12 @@ class GUI_interface:
     ttk.Label(win, text="影片資訊", font=("微軟正黑體", 14)).place(x=10, y=350)
     ttk.Frame(win, height=5, width=1260, style="darkly").place(x=10, y=395)
     tk.Button(win, text="Download", font=("微軟正黑體", 13)).place(x=1116, y=415, width=154, height=294)
+    ttk.Frame(win, height=314, width=5, style="darkly").place(x=1095, y=395)
+    ttk.Frame(win, height=314, width=5, style="darkly").place(x=925, y=395)
+    tk.Radiobutton(win, text="1440p", font=("微軟正黑體", 13)).place(x=955, y=415)
+    tk.Radiobutton(win, text="1080p", font=("微軟正黑體", 13)).place(x=955, y=475)
+    tk.Radiobutton(win, text="720p", font=("微軟正黑體", 13)).place(x=955, y=535)
+    tk.Radiobutton(win, text="360p", font=("微軟正黑體", 13)).place(x=955, y=595)
+    tk.Radiobutton(win, text="144p", font=("微軟正黑體", 13)).place(x=955, y=655)
 
     win.mainloop()
