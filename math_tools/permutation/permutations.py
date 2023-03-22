@@ -1,5 +1,4 @@
 '''
-    說明:
     P_n取k = n!/(n-k)!
     U_n取k = n**k
     C_n取k = P_n取k/k!
