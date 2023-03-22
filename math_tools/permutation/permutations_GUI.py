@@ -4,7 +4,7 @@ from math import factorial
 
 win = ttk.Window(themename="litera")
 
-win.geometry("1400x1350")
+win.geometry("720x690")
 win.resizable(0, 0)
 win.title("permutations caculator")
 
@@ -71,14 +71,14 @@ class GUI_interface:
     
     class permutation_geomentary_parameter:
         global x_def, y_def, CPUH_height, CPUH_width, entry_height, entry_width, label_2_height, switch_height
-        x_def = 20
-        y_def = 120
-        CPUH_width = 180
-        CPUH_height = 10
-        entry_width = 125
-        entry_height = 120
-        label_2_height = 100
-        switch_height = 250
+        x_def = 10
+        y_def = 60
+        CPUH_width = 90
+        CPUH_height = 5
+        entry_width = 80
+        entry_height = 60
+        label_2_height = 50
+        switch_height = 125
 
     class caculator_geomentary:
         global entry_x, entry_y, num_button_x, num_button_y, num_button_width, num_button_height
@@ -94,7 +94,7 @@ class GUI_interface:
         entry_C_2 = ttk.Entry(win, style="litera", font=("微軟正黑體", 16), width="4", textvariable=C_k).place(x=x_def+CPUH_width, y=y_def+CPUH_height+entry_height)
         label_C_2 = ttk.Label(win, text="=", style="litera", font=("微軟正黑體", 68)).place(x=x_def+CPUH_width+entry_width, y=label_2_height)
         label_C_3 = ttk.Label(win, style="litera", font=("微軟正黑體", 68), textvariable=C_ans).place(x=x_def+CPUH_width+entry_width+150, y=label_2_height+20)
-        button_C_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=C).place(x=1400-170, y=label_2_height+85)
+        button_C_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=C).place(x=690-50, y=label_2_height+40)
     
     class P:
         global P_n, P_k, P_ans
@@ -107,7 +107,7 @@ class GUI_interface:
         entry_P_2 = ttk.Entry(win, style="litera", font=("微軟正黑體", 16), width="4", textvariable=P_k).place(x=x_def+CPUH_width, y=y_def+CPUH_height+entry_height+switch_height)
         label_P_2 = ttk.Label(win, text="=", style="litera", font=("微軟正黑體", 68)).place(x=x_def+CPUH_width+entry_width, y=label_2_height+switch_height)
         label_P_3 = ttk.Label(win, style="litera", font=("微軟正黑體", 68), textvariable=P_ans).place(x=x_def+CPUH_width+entry_width+150, y=label_2_height+switch_height+20)
-        button_P_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=P).place(x=1400-170, y=label_2_height+85+switch_height)
+        button_P_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=P).place(x=690-50, y=label_2_height+40+switch_height)
 
     class U:
         global U_n, U_k, U_ans
@@ -120,7 +120,7 @@ class GUI_interface:
         entry_U_2 = ttk.Entry(win, style="litera", font=("微軟正黑體", 16), width="4", textvariable=U_k).place(x=x_def+CPUH_width, y=y_def+CPUH_height+entry_height+2*switch_height)
         label_U_2 = ttk.Label(win, text="=", style="litera", font=("微軟正黑體", 68)).place(x=x_def+CPUH_width+entry_width, y=label_2_height+2*switch_height)
         label_U_3 = ttk.Label(win, style="litera", font=("微軟正黑體", 68), textvariable=U_ans).place(x=x_def+CPUH_width+entry_width+150, y=label_2_height+2*switch_height+20)
-        button_U_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=U).place(x=1400-170, y=label_2_height+85+switch_height*2)
+        button_U_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=U).place(x=690-50, y=label_2_height+40+switch_height*2)
 
     class H:
         global H_n, H_k, H_ans
@@ -133,7 +133,7 @@ class GUI_interface:
         entry_H_2 = ttk.Entry(win, style="litera", font=("微軟正黑體", 16), width="4", textvariable=H_k).place(x=x_def+CPUH_width, y=y_def+CPUH_height+entry_height+3*switch_height)
         label_H_2 = ttk.Label(win, text="=", style="litera", font=("微軟正黑體", 68)).place(x=x_def+CPUH_width+entry_width, y=label_2_height+3*switch_height)
         label_H_3 = ttk.Label(win, style="litera", font=("微軟正黑體", 68), textvariable=H_ans).place(x=x_def+CPUH_width+entry_width+150, y=label_2_height+3*switch_height+20)
-        button_H_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=H).place(x=1400-170, y=label_2_height+85+switch_height*3)
+        button_H_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=H).place(x=690-50, y=label_2_height+40+switch_height*3)
     
     class factorial:
         global fac_n, fac_ans
@@ -144,6 +144,6 @@ class GUI_interface:
         entry_fac_1 = ttk.Entry(win, style="litera", font=("微軟正黑體", 16), width="4", textvariable=fac_n).place(x=x_def+CPUH_width, y=y_def+CPUH_height+4.275*switch_height)
         label_fac_2 = ttk.Label(win, text="=", style="litera", font=("微軟正黑體", 68)).place(x=x_def+CPUH_width+entry_width, y=label_2_height+4*switch_height+15)
         label_fac_3 = ttk.Label(win, style="litera", font=("微軟正黑體", 68), textvariable=fac_ans).place(x=x_def+CPUH_width+entry_width+150, y=label_2_height+4*switch_height+20)
-        button_fac_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=fac).place(x=1400-170, y=label_2_height+85+switch_height*4)
+        button_fac_1 = tk.Button(win, text="Count", font=("微軟正黑體", 14), command=fac).place(x=690-50, y=label_2_height+40+switch_height*4)
     
 win.mainloop()
