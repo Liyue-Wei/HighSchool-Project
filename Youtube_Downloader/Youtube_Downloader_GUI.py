@@ -2,6 +2,7 @@ from pytube import YouTube
 from download_path import download
 import tkinter as tk
 from tkinter import INSERT
+from tkinter import messagebox
 import ttkbootstrap as ttk
 import os
 
@@ -18,17 +19,30 @@ resolution.set(default)
 
 def search():
     status_txt.delete('1.0', 'end')
-    status_txt.insert(INSERT, "Rick Astley")
+    # status_txt.insert(INSERT, "Rick Astley")
 
 def res_set():
     global res_get
     res_get = resolution.get()
+    return(res_get)
 
 def video_download():
     global url, vid_path
     vid_url = url.get()
     vid_path = path.get()
-    status_txt.insert(INSERT, vid_url+vid_path)
+    vid_path = download()
+
+    if vid_url == "":
+        messagebox.showerror("下載失敗", "未輸入網址")
+
+    else:
+        try:
+            YT = YouTube(vid_url)
+            YT.streams.first().download(vid_path)
+            status_txt.insert(INSERT, "Rick Astley")
+        
+        except:
+            messagebox.showerror("下載失敗", "影片無法下載")
 
 class GUI_interface:
     global status_txt
