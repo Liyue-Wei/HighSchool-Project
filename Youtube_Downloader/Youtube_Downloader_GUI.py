@@ -1,5 +1,5 @@
 from pytube import YouTube
-from get_username import username
+
 import tkinter as tk
 from tkinter import INSERT
 import ttkbootstrap as ttk
@@ -45,3 +45,10 @@ class GUI_interface:
     status_txt.place(x=15, y=416, width=895, height=288)
 
     win.mainloop()
+
+'''
+def username():
+    dir_path = os.path.dirname(__file__)
+    path_list = dir_path.split("\\")
+    return(path_list[2])
+'''
