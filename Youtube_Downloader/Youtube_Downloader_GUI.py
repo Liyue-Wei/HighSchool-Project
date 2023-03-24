@@ -8,6 +8,15 @@ win.geometry("1280x720")
 win.title("YouTube Downloader")
 win.resizable(0, 0)
 
+default = "Auto"
+resolution = tk.StringVar()
+resolution.set(default)
+
+def res_set():
+    global res_get
+    res_get = resolution.get()
+    print(res_get)
+
 class GUI_interface:
     ttk.Label(win, text="YouTube Downloader", font=("微軟正黑體", 20)).place(x=10, y=10)
     ttk.Label(win, text="輸入影片網址", font=("微軟正黑體", 14)).place(x=10, y=90)
@@ -17,14 +26,13 @@ class GUI_interface:
     ttk.Entry(win, font=("微軟正黑體", 16), width=57).place(x=10, y=265)
     ttk.Label(win, text="影片資訊", font=("微軟正黑體", 14)).place(x=10, y=350)
     ttk.Frame(win, height=5, width=1260, style="darkly").place(x=10, y=395)
-    tk.Button(win, text="Download", font=("微軟正黑體", 13)).place(x=1116, y=415, width=148, height=288)
+    tk.Button(win, text="Download", font=("微軟正黑體", 13), command=res_set).place(x=1116, y=415, width=148, height=288)
     ttk.Frame(win, height=314, width=5, style="darkly").place(x=1095, y=395)
     ttk.Frame(win, height=314, width=5, style="darkly").place(x=925, y=395)
-    tk.Radiobutton(win, text="Best", font=("微軟正黑體", 13)).place(x=955, y=415)
-    tk.Radiobutton(win, text="1080p", font=("微軟正黑體", 13)).place(x=955, y=475)
-    tk.Radiobutton(win, text="720p", font=("微軟正黑體", 13)).place(x=955, y=535)
-    tk.Radiobutton(win, text="480p", font=("微軟正黑體", 13)).place(x=955, y=595)
-    tk.Radiobutton(win, text="144p", font=("微軟正黑體", 13)).place(x=955, y=655)
-    tk.Text(win, state="disabled").place(x=14, y=415, width=897, height=288)
+    tk.Label(win, text="Resolution", font=("微軟正黑體", 13)).place(x=944, y=418)
+    tk.Radiobutton(win, text="Auto", font=("微軟正黑體", 13), value="Auto", variable=resolution).place(x=955, y=471)
+    tk.Radiobutton(win, text="1080p", font=("微軟正黑體", 13), value="1080p", variable=resolution).place(x=955, y=531)
+    tk.Radiobutton(win, text="720p", font=("微軟正黑體", 13), value="720p", variable=resolution).place(x=955, y=591)
+    tk.Radiobutton(win, text="480p", font=("微軟正黑體", 13), value="480p", variable=resolution).place(x=955, y=651)
 
     win.mainloop()
