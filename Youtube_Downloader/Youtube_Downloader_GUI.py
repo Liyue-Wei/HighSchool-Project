@@ -19,7 +19,7 @@ resolution.set(default)
 
 def search():
     status_txt.delete('1.0', 'end')
-    # status_txt.insert(INSERT, "Rick Astley")
+    status_txt.insert(INSERT, "Rick Astley")
 
 def res_set():
     global res_get
