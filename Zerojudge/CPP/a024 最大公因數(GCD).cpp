@@ -12,5 +12,4 @@ int main(void)
     }
     cout << i ;
     return 0;
-
 }
