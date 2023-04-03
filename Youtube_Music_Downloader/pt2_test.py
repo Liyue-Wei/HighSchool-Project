@@ -41,7 +41,7 @@ def video_download():
 class GUI_interface:
     global status_txt
     ttk.Label(win, text="YouTube Music Downloader", font=("微軟正黑體", 20)).place(x=10, y=10)
-    ttk.Label(win, text="Designed for Microsoft Surface Laptop", font=("微軟正黑體", 9)).place(x=552, y=32)
+    # ttk.Label(win, text="Designed for Microsoft Surface Laptop", font=("微軟正黑體", 9)).place(x=552, y=32)
     ttk.Label(win, text="輸入YouTube網址", font=("微軟正黑體", 14)).place(x=10, y=90)
     ttk.Entry(win, font=("微軟正黑體", 16), width=57, textvariable=url).place(x=10, y=135)
     tk.Button(win, text="Append", font=("微軟正黑體", 13), command=append).place(x=1116, y=131, width=154, height=62)
@@ -62,7 +62,7 @@ class GUI_interface:
     ttk.Frame(win, height=315, width=5, style="darkly").place(x=831, y=395)
     tk.Label(win, text="Format", font=("微軟正黑體", 13)).place(x=847, y=420)
     tk.Checkbutton(win, text="mp4 - 48kbps", font=("微軟正黑體", 13)).place(x=847, y=471)
-    tk.Checkbutton(win, text="mp4 - 192kbps", font=("微軟正黑體", 13)).place(x=847, y=531)
+    tk.Checkbutton(win, text="mp4 - 128kbps", font=("微軟正黑體", 13)).place(x=847, y=531)
     tk.Checkbutton(win, text="webm - 50kbps", font=("微軟正黑體", 13)).place(x=847, y=591)
     tk.Checkbutton(win, text="webm - 160kbps", font=("微軟正黑體", 13)).place(x=847, y=651)
     status_txt = tk.Text(win, font=("微軟正黑體", 12))
