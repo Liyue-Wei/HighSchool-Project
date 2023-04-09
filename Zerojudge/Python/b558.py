@@ -3,4 +3,4 @@ while True:
     t = 1
     for n in range(0, int(i)):
         t+=n
-    print(n, t)
+    print(t)
