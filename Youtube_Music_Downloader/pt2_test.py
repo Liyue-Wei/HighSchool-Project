@@ -32,11 +32,16 @@ def video_download():
     else:
         try:
             YT = YouTube(vid_url)
-            YT.streams.filter(type="audio", audio_codec="opus").last().download()
-            status_txt.insert(INSERT, YT.title())
+            status_txt.insert(INSERT, YT.title)
+            try:
+                YT.streams.filter(type="audio", audio_codec="opus").last().download()
+                status_txt.insert(INSERT, YT.title())
+
+            except:
+                messagebox.showerror("下載失敗", "影片無法下載")
         
         except:
-            messagebox.showerror("下載失敗", "影片無法下載")
+            messagebox.showerror("下載失敗", "查無此影片")
 
 class GUI_interface:
     global status_txt
