@@ -10,6 +10,7 @@ while True:
             for i in range(0, len(url)):
                 yt = YouTube(url[i])
                 yt.streams.filter(type="music").first().download()
+            break
 
         except:
             print("error")
