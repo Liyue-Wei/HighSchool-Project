@@ -31,6 +31,7 @@ def delete():
 
 def video_download():
     vid_path = path.get()
+    status_txt.insert(INSERT, pll_title)
     # vid_path = download()
 
 '''
