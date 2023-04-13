@@ -1,3 +1,7 @@
+while True:
+    s, e, b, k = map(int, input().split(' '))
+    
+
 '''
 while True:
     s, e, b, k = map(int, input().split(' '))
@@ -12,7 +16,6 @@ while True:
             list_1.append(s+b)
             s+=b
     print(list_1)
-'''
 
 while True:
     s, e, b, k = map(int, input().split(' '))
@@ -23,3 +26,4 @@ while True:
         if n==k:           
             break
     print(n)
+'''
