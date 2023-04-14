@@ -4,8 +4,6 @@ while True:
     for n in range(s, e+1):
         if(n%10==b or n%b==0):
             i+=1
-        if((n%10)%10==b):
-            i+=1
         if(i==k):
             break
     if(i<k):
