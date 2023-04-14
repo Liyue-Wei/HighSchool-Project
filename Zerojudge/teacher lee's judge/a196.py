@@ -1,29 +1,14 @@
 while True:
     s, e, b, k = map(int, input().split(' '))
-    
-
-'''
-while True:
-    s, e, b, k = map(int, input().split(' '))
-    i, n = s, s
-    list_1 = []    #b倍數
-    list_2 = []    #b+10
-    while(i<=e):
-        if(s<=b):
-            list_1.append(b)
-            s+=b
-        else:
-            list_1.append(s+b)
-            s+=b
-    print(list_1)
-
-while True:
-    s, e, b, k = map(int, input().split(' '))
-    n = 1
-    for i in range(s, e):
-        if(i%b==0 or i%10==b):
-            n+=1
-        if n==k:           
+    i = 0
+    for n in range(s, e+1):
+        if(n%10==b or n%b==0):
+            i+=1
+        if((n%10)%10==b):
+            i+=1
+        if(i==k):
             break
-    print(n)
-'''
+    if(i<k):
+        print(-1)
+    else:
+        print(n)
