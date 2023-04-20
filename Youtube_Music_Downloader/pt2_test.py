@@ -45,6 +45,8 @@ def music_download():
     if(vid_path==""):
         vid_path = download()
 
+    print(vid_path)
+
 '''
     if vid_url == "":
         messagebox.showerror("下載失敗", "未輸入網址")
