@@ -23,12 +23,17 @@ def append():
     vid_url = url.get()
     if(vid_url==""):
         messagebox.showerror("載入失敗", "未輸入網址")
+        
     else:
-        YT = YouTube(vid_url)
-        info = YT.title
-        playlist.append(YT)
-        pll_title.append(info)
-        status_txt.insert(INSERT, (info+'\n'))
+        try:
+            YT = YouTube(vid_url)
+            info = YT.title
+            playlist.append(YT)
+            pll_title.append(info)
+            status_txt.insert(INSERT, (info+'\n'))
+        
+        except:
+            messagebox.showerror("載入失敗", "無法載入網址")
 
 def clear():
     status_txt.delete('1.0', 'end')
