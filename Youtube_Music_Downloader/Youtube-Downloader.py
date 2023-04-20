@@ -9,7 +9,7 @@ while(selection == False):
     if(check == "Y"):
         selection = True
         print("processing")
-        url.streams.first().download()
+        url.streams.get_highest_resolution().download()
         print("finish process")
         selection = False
         
