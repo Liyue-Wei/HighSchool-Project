@@ -3,7 +3,8 @@ from pytube import YouTube
 selection = False
 while(selection == False):
     url = YouTube(input("input url : "))
-    print(url.title)
+    print(url.streams)
+    # print(url.title)
     check = input("Y/N : ")
     
     if(check == "Y"):
