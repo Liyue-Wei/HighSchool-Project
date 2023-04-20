@@ -7,5 +7,3 @@ def download():
     path_list.append("Downloads")
     path_list = "\\".join(path_list)
     return(path_list)
-
-print(download())

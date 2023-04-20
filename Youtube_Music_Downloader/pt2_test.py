@@ -1,10 +1,10 @@
 from pytube import YouTube
-# from download_path import download
+from download_path import download
 import tkinter as tk
 from tkinter import INSERT
 from tkinter import messagebox
 import ttkbootstrap as ttk
-# import os
+import os
 
 win = ttk.Window(themename="darkly")
 win.geometry("1280x720")
