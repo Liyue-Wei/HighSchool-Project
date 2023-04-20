@@ -15,13 +15,8 @@ opt = Options()
 opt.add_experimental_option("debuggerAddress", "127.0.0.1:9527")
 driver = webdriver.Chrome(options=opt)
 driver.minimize_window()
-
-(width, height) = pyautogui.size()
-if (width>1920 and height>1080):
-    screensize = ("1280x650")
-
-else:
-    screensize = ("1000x520")
+screensize = ("1280x600")
+ver = 1.1
 
 def set_interval(func, sec):
     def func_wrapper():
@@ -160,7 +155,7 @@ class GUI_interface:
     set_interval(time_set, 1)
     
     tk.Label(win, text="線上課程自動點名系統", font=("微軟正黑體", 24)).pack(side=tk.TOP, anchor=tk.NW, padx=10, pady=5)
-    tk.Label(win, text="Version 1.0", font=("微軟正黑體", 12)).pack(anchor=tk.NE, padx=10, pady=0)
+    tk.Label(win, text=("Version "+ str(ver)), font=("微軟正黑體", 12)).pack(anchor=tk.NE, padx=10, pady=0)
     tk.Label(win, image=pic).pack(side=tk.BOTTOM, anchor=tk.SE, padx=15, pady=15)
     tk.Label(win, textvariable=time_now, font=("微軟正黑體", 16)).pack(anchor=tk.SE, padx=10, pady=0)
 
