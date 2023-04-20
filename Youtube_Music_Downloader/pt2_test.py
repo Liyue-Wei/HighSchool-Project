@@ -5,6 +5,7 @@ from tkinter import INSERT
 from tkinter import messagebox
 import ttkbootstrap as ttk
 import os
+import time
 
 win = ttk.Window(themename="darkly")
 win.geometry("1280x720")
@@ -20,19 +21,22 @@ error_list = []
 
 def append():
     vid_url = url.get()
-    YT = YouTube(vid_url)
-    info = YT.title
-    playlist.append(YT)
-    pll_title.append(info)
-    status_txt.insert(INSERT, (info+'\n'))
+    if(vid_url==""):
+        messagebox.showerror("載入失敗", "未輸入網址")
+    else:
+        YT = YouTube(vid_url)
+        info = YT.title
+        playlist.append(YT)
+        pll_title.append(info)
+        status_txt.insert(INSERT, (info+'\n'))
 
 def clear():
     status_txt.delete('1.0', 'end')
 
-def video_download():
+def music_download():
     vid_path = path.get()
-    # status_txt.insert(INSERT, pll_title)
-    # vid_path = download()
+    if(vid_path==""):
+        vid_path = download()
 
 '''
     if vid_url == "":
@@ -71,7 +75,7 @@ class GUI_interface:
     ttk.Entry(win, font=("微軟正黑體", 16), width=23).place(x=713, y=268)
     ttk.Label(win, text="詳細資訊", font=("微軟正黑體", 14)).place(x=10, y=350)
     ttk.Frame(win, height=5, width=1260, style="darkly").place(x=10, y=395)
-    tk.Button(win, text="Download", font=("微軟正黑體", 13), command=video_download).place(x=1116, y=415, width=148, height=288)
+    tk.Button(win, text="Download", font=("微軟正黑體", 13), command=music_download).place(x=1116, y=415, width=148, height=288)
     ttk.Frame(win, height=315, width=5, style="darkly").place(x=1095, y=395)
     ttk.Frame(win, height=315, width=5, style="darkly").place(x=831, y=395)
     tk.Label(win, text="Format", font=("微軟正黑體", 13)).place(x=847, y=420)
