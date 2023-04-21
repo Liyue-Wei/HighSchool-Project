@@ -31,11 +31,11 @@ def append():
             playlist.append(YT)
             pll_title.append(info)
             status_txt.insert(INSERT, (info+'\n'))
-            url.set("")
         
         except:
-            messagebox.showerror("載入失敗", "無法載入網址")
-            url.set("")
+            messagebox.showerror("載入失敗", "無法載入網址，請檢察網址並重試")
+        
+        url.set("")
 
 def clear():
     status_txt.delete('1.0', 'end')
@@ -73,7 +73,9 @@ def delete():
     print("del")
 
 def DL():
-    print("DL")
+    # for i in range(len(playlist)):
+    #     status_txt.insert(INSERT, (playlist[i]+'\n'))  
+    print(pll_title)      
 
 def info():
     print("info")
