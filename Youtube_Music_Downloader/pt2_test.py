@@ -28,7 +28,7 @@ def append():
         try:
             YT = YouTube(vid_url)
             info = YT.title
-            playlist.append(YT)
+            playlist.append(vid_url)
             pll_title.append(info)
             status_txt.insert(INSERT, (info+'\n'))
         
@@ -74,9 +74,8 @@ def delete():
     print("del")
 
 def DL():
-    # for i in range(len(playlist)):
-    #     status_txt.insert(INSERT, (playlist[i]+'\n'))  
-    print(pll_title)      
+    for i in range(len(pll_title)):
+        status_txt.insert(INSERT, pll_title[i]) 
 
 def info():
     print("info")
