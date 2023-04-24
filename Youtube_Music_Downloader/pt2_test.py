@@ -1,5 +1,6 @@
 from pytube import YouTube
 from download_path import download
+# from path_rev import path_function
 import tkinter as tk
 from tkinter import INSERT
 from tkinter import messagebox
@@ -33,19 +34,28 @@ def append():
             status_txt.insert(INSERT, (info+'\n'))
         
         except:
-            res = messagebox.askretrycancel("載入失敗", "無法載入網址，請檢察網址並重試")
+            res = messagebox.askretrycancel("載入失敗", "無法載入網址，請檢察網址或重試")
             if(res==True):
                 append()
 
         url.set("")
 
+def folder(sel):
+    vid_path = path.get()
+    if(vid_path==""):
+        vid_path = download()
+
+    if(sel==True):
+        return download()
+    
+    # else:
+    #     os.system(path_function())
+
 def clear():
     status_txt.delete('1.0', 'end')
 
 def music_download():
-    vid_path = path.get()
-    if(vid_path==""):
-        vid_path = download()
+    vid_path = folder(True)
 
     print(vid_path)
 
@@ -76,6 +86,10 @@ def delete():
     print("del")
 
 def DL():
+    if(len(pll_title)==0):
+        status_txt.delete('1.0', 'end')
+        status_txt.insert(INSERT, "Download List is Empty") 
+
     for i in range(len(pll_title)):
         status_txt.insert(INSERT, (pll_title[i], '\n')) 
 
@@ -92,7 +106,7 @@ class GUI_interface:
     ttk.Entry(win, font=("微軟正黑體", 16), width=67, textvariable=url).place(x=10, y=137)
     tk.Button(win, text="Append", font=("微軟正黑體", 13), command=append).place(x=1116, y=131, width=154, height=62)  
     ttk.Label(win, text="下載位置 (預設為Download)", font=("微軟正黑體", 14)).place(x=10, y=220)
-    # tk.Button(win, text="Select", font=("微軟正黑體", 13), command=select).place(x=528, y=261, width=154, height=62)
+    # tk.Button(win, text="Open", font=("微軟正黑體", 11), command=folder(False)).place(x=559, y=330, width=120, height=48)
     ttk.Frame(win, height=192, width=5, style="darkly").place(x=695, y=204)
     ttk.Label(win, text="編輯預下載列表", font=("微軟正黑體", 14)).place(x=713, y=220)
     tk.Button(win, text="Delete", font=("微軟正黑體", 13), command=delete).place(x=1116, y=261, width=154, height=62)
