@@ -118,3 +118,9 @@ class GUI_interface:
     tk.Button(win, text="Error List", font=("微軟正黑體", 13), command=err_list).place(x=360, y=645, width=154, height=62)
     tk.Button(win, text="Clear", font=("微軟正黑體", 13), command=clear).place(x=664, y=645, width=154, height=62)
     win.mainloop()
+
+'''
+https://www.youtube.com/watch?v=oLtvUWpAnTQ
+https://www.youtube.com/watch?v=bD8RT0ub--0
+https://www.youtube.com/watch?v=9wV1VxlfBlI
+'''
