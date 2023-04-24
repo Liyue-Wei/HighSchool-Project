@@ -5,8 +5,8 @@ import tkinter as tk
 from tkinter import INSERT
 from tkinter import messagebox
 import ttkbootstrap as ttk
-import os
-import time
+# import os
+# import time
 
 win = ttk.Window(themename="darkly")
 win.geometry("1280x720")
@@ -17,6 +17,7 @@ global url, vid_path, vid_url, playlist, pll_title, error_list
 url = tk.StringVar()
 path = tk.StringVar()
 playlist = []
+pll_streams = []
 pll_title = []
 error_list = []
 
@@ -32,6 +33,7 @@ def append():
             playlist.append(vid_url)
             pll_title.append(info)
             status_txt.insert(INSERT, (info+'\n'))
+            pll_streams.append(YT.streams)
         
         except:
             res = messagebox.askretrycancel("載入失敗", "無法載入網址，請檢察網址或重試")
@@ -56,13 +58,18 @@ def clear():
 
 def music_download():
     vid_path = folder(True)
+    if(len(playlist)==0):
+        messagebox.showerror("下載失敗", "未載入下載列表")
 
-    print(vid_path)
+    else:
+        try:
+            for i in range(len(pll_streams)):
+                print(pll_streams[i])
+            
+        except:
+            status_txt.insert(INSERT, (pll_title[i], '\n'))
 
 '''
-    if vid_url == "":
-        messagebox.showerror("下載失敗", "未輸入網址")
-
     else:
         try:
             YT = YouTube(vid_url)
@@ -97,7 +104,11 @@ def info():
     print("info")
 
 def err_list():
-    print("err_list")
+    if(len(error_list)==0):
+        status_txt.delete('1.0', 'end')
+        status_txt.insert(INSERT, "There's no Error here") 
+    
+    # print("err_list")
 
 class GUI_interface:
     global status_txt

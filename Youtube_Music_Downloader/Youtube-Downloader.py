@@ -3,14 +3,16 @@ from pytube import YouTube
 selection = False
 while(selection == False):
     url = YouTube(input("input url : "))
-    print(url.streams)
-    print(url.title)
+    url_streams = url.streams
+    url_title = url.title
+    print(url_streams)
+    print(url_title)
     check = input("Y/N : ")
     
     if(check == "Y"):
         selection = True
         print("processing")
-        url.streams.get_highest_resolution().download()
+        url_streams.get_highest_resolution().download()
         print("finish process")
         selection = False
         
