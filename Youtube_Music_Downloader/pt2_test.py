@@ -33,8 +33,10 @@ def append():
             status_txt.insert(INSERT, (info+'\n'))
         
         except:
-            messagebox.showerror("載入失敗", "無法載入網址，請檢察網址並重試")
-        
+            res = messagebox.askretrycancel("載入失敗", "無法載入網址，請檢察網址並重試")
+            if(res==True):
+                append()
+
         url.set("")
 
 def clear():
@@ -75,7 +77,7 @@ def delete():
 
 def DL():
     for i in range(len(pll_title)):
-        status_txt.insert(INSERT, pll_title[i]) 
+        status_txt.insert(INSERT, (pll_title[i], '\n')) 
 
 def info():
     print("info")
