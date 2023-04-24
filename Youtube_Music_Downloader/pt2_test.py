@@ -66,8 +66,9 @@ def music_download():
             messagebox.showerror("下載失敗", "查無此影片")
 '''
 
-def select():
-    print("select")
+# def select():
+#     vid_path = path.get()
+#     print("select")
 
 def delete():
     print("del")
@@ -90,14 +91,14 @@ class GUI_interface:
     ttk.Entry(win, font=("微軟正黑體", 16), width=67, textvariable=url).place(x=10, y=137)
     tk.Button(win, text="Append", font=("微軟正黑體", 13), command=append).place(x=1116, y=131, width=154, height=62)  
     ttk.Label(win, text="下載位置 (預設為Download)", font=("微軟正黑體", 14)).place(x=10, y=220)
-    tk.Button(win, text="Select", font=("微軟正黑體", 13), command=select).place(x=528, y=261, width=154, height=62)
+    # tk.Button(win, text="Select", font=("微軟正黑體", 13), command=select).place(x=528, y=261, width=154, height=62)
     ttk.Frame(win, height=192, width=5, style="darkly").place(x=695, y=204)
     ttk.Label(win, text="編輯預下載列表", font=("微軟正黑體", 14)).place(x=713, y=220)
     tk.Button(win, text="Delete", font=("微軟正黑體", 13), command=delete).place(x=1116, y=261, width=154, height=62)
     tk.Radiobutton(win, text="由網址刪除", font=("微軟正黑體", 11)).place(x=713, y=340)
     tk.Radiobutton(win, text="由歌名刪除", font=("微軟正黑體", 11)).place(x=884, y=340)
     tk.Radiobutton(win, text="由錯誤列表自動刪除", font=("微軟正黑體", 11)).place(x=1050, y=340)
-    ttk.Entry(win, font=("微軟正黑體", 16), width=30).place(x=10, y=268)
+    ttk.Entry(win, font=("微軟正黑體", 16), width=41, textvariable=path).place(x=10, y=268)
     ttk.Entry(win, font=("微軟正黑體", 16), width=23).place(x=713, y=268)
     ttk.Label(win, text="詳細資訊", font=("微軟正黑體", 14)).place(x=10, y=350)
     ttk.Frame(win, height=5, width=1260, style="darkly").place(x=10, y=395)
