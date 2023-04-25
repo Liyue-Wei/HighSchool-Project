@@ -10,7 +10,7 @@ import ttkbootstrap as ttk
 
 win = ttk.Window(themename="darkly")
 win.geometry("1280x720")
-win.title("YouTube Music")
+win.title("YouTube Music Downloader")
 win.resizable(0, 0)
 
 global url, vid_path, vid_url, playlist, pll_title, error_list
@@ -24,6 +24,7 @@ error_list = []
 vid_formate.set("webm - 160kbps")
 
 def append():
+    global YT
     vid_url = url.get()
     if(vid_url==""):
         messagebox.showerror("載入失敗", "未輸入網址")
@@ -66,7 +67,9 @@ def music_download():
     else:
         try:
             for i in range(len(pll_streams)):
-                print(pll_streams[i])
+                status_txt.insert(INSERT, ("正在下載", pll_title[i]))
+                YT.
+                # print(pll_streams[i])
             
         except:
             status_txt.insert(INSERT, (pll_title[i], '\n'))
