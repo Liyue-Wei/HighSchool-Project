@@ -16,10 +16,12 @@ win.resizable(0, 0)
 global url, vid_path, vid_url, playlist, pll_title, error_list
 url = tk.StringVar()
 path = tk.StringVar()
+vid_formate = tk.StringVar()
 playlist = []
 pll_streams = []
 pll_title = []
 error_list = []
+vid_formate.set("webm - 160kbps")
 
 def append():
     vid_url = url.get()
@@ -98,6 +100,7 @@ def DL():
         status_txt.insert(INSERT, "Download List is Empty") 
 
     for i in range(len(pll_title)):
+        status_txt.delete('1.0', 'end')
         status_txt.insert(INSERT, (pll_title[i], '\n')) 
 
 def info():
@@ -132,10 +135,10 @@ class GUI_interface:
     ttk.Frame(win, height=315, width=5, style="darkly").place(x=1095, y=395)
     ttk.Frame(win, height=315, width=5, style="darkly").place(x=831, y=395)
     tk.Label(win, text="Format", font=("微軟正黑體", 13)).place(x=847, y=420)
-    tk.Radiobutton(win, text="mp4 - 48kbps", font=("微軟正黑體", 13)).place(x=847, y=471)
-    tk.Radiobutton(win, text="mp4 - 128kbps", font=("微軟正黑體", 13)).place(x=847, y=531)
-    tk.Radiobutton(win, text="webm - 50kbps", font=("微軟正黑體", 13)).place(x=847, y=591)
-    tk.Radiobutton(win, text="webm - 160kbps", font=("微軟正黑體", 13)).place(x=847, y=651)
+    tk.Radiobutton(win, text="mp4 - 48kbps", font=("微軟正黑體", 13), value="mp4 - 48kbps", variable=vid_formate).place(x=847, y=471)
+    tk.Radiobutton(win, text="mp4 - 128kbps", font=("微軟正黑體", 13), value="mp4 - 128kbps", variable=vid_formate).place(x=847, y=531)
+    tk.Radiobutton(win, text="webm - 50kbps", font=("微軟正黑體", 13), value="webm - 50kbps", variable=vid_formate).place(x=847, y=591)
+    tk.Radiobutton(win, text="webm - 160kbps", font=("微軟正黑體", 13), value="webm - 160kbps", variable=vid_formate).place(x=847, y=651)
     status_txt = tk.Text(win, font=("微軟正黑體", 12))
     status_txt.place(x=15, y=413, width=803, height=220)
     tk.Button(win, text="Download List", font=("微軟正黑體", 13), command=DL).place(x=15, y=645, width=168, height=62)
