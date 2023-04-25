@@ -21,7 +21,7 @@ playlist = []
 pll_streams = []
 pll_title = []
 error_list = []
-vid_formate.set("webm - 160kbps")
+vid_formate.set("160kbps")
 
 def append():
     global YT
@@ -65,14 +65,34 @@ def music_download():
         messagebox.showerror("下載失敗", "未載入下載列表")
 
     else:
+        for i in range(len(pll_streams)):
+            try:
+                status_txt.insert(INSERT, ("正在下載", pll_title[i], '\n'))
+                opt = vid_formate.get()
+                YT.streams.filter(type="audio", abr=opt).first().download(vid_path)
+                status_txt.insert(INSERT, "下載完成", '\n')
+
+            except:
+                res = messagebox.askretrycancel("下載失敗", "無法完成下載")
+                if(res==True):
+                    music_download()
+                    
+        '''
         try:
             for i in range(len(pll_streams)):
-                status_txt.insert(INSERT, ("正在下載", pll_title[i]))
-                YT.
+                status_txt.insert(INSERT, ("正在下載", pll_title[i], '\n'))
+                opt = vid_formate.get()
+                YT.streams.filter(type="audio", abr=opt).first().download(vid_path)
+                status_txt.insert(INSERT, "下載完成", '\n')
                 # print(pll_streams[i])
             
         except:
-            status_txt.insert(INSERT, (pll_title[i], '\n'))
+            res = messagebox.askretrycancel("下載失敗", "無法完成下載")
+            if(res==True):
+                music_download()
+
+            status_txt.insert(INSERT, (pll_title[i], '\n'))        
+        '''
 
 '''
     else:
@@ -138,10 +158,10 @@ class GUI_interface:
     ttk.Frame(win, height=315, width=5, style="darkly").place(x=1095, y=395)
     ttk.Frame(win, height=315, width=5, style="darkly").place(x=831, y=395)
     tk.Label(win, text="Format", font=("微軟正黑體", 13)).place(x=847, y=420)
-    tk.Radiobutton(win, text="mp4 - 48kbps", font=("微軟正黑體", 13), value="mp4 - 48kbps", variable=vid_formate).place(x=847, y=471)
-    tk.Radiobutton(win, text="mp4 - 128kbps", font=("微軟正黑體", 13), value="mp4 - 128kbps", variable=vid_formate).place(x=847, y=531)
-    tk.Radiobutton(win, text="webm - 50kbps", font=("微軟正黑體", 13), value="webm - 50kbps", variable=vid_formate).place(x=847, y=591)
-    tk.Radiobutton(win, text="webm - 160kbps", font=("微軟正黑體", 13), value="webm - 160kbps", variable=vid_formate).place(x=847, y=651)
+    tk.Radiobutton(win, text="mp4 - 48kbps", font=("微軟正黑體", 13), value="48kbps", variable=vid_formate).place(x=847, y=471)
+    tk.Radiobutton(win, text="mp4 - 128kbps", font=("微軟正黑體", 13), value="128kbps", variable=vid_formate).place(x=847, y=531)
+    tk.Radiobutton(win, text="webm - 50kbps", font=("微軟正黑體", 13), value="50kbps", variable=vid_formate).place(x=847, y=591)
+    tk.Radiobutton(win, text="webm - 160kbps", font=("微軟正黑體", 13), value="160kbps", variable=vid_formate).place(x=847, y=651)
     status_txt = tk.Text(win, font=("微軟正黑體", 12))
     status_txt.place(x=15, y=413, width=803, height=220)
     tk.Button(win, text="Download List", font=("微軟正黑體", 13), command=DL).place(x=15, y=645, width=168, height=62)
