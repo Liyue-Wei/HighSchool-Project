@@ -1,3 +1,18 @@
+i = int(input())
+min = 720
+while(i>0):
+    h, m = map(int, input().split(':'))
+    count = (h*60)+m
+    num = min-count
+    if(num==0):
+        print("12:00")
+    else:
+        hour = num/60
+        minute = num%60
+        print("%02d:%02d" % (hour, minute))
+    i-=1
+
+'''
 h_r = []
 m_r = []
 i = int(input())
@@ -25,6 +40,9 @@ while(i>0):
 
 for l in range(0, len(h_r)):
     print("%02d:%02d" % (h_r[l], m_r[l]))
+
+'''
+
 '''
 h_r = []
 m_r = []
