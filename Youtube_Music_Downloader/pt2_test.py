@@ -6,7 +6,7 @@ from tkinter import INSERT
 from tkinter import messagebox
 import ttkbootstrap as ttk
 # import os
-# import time
+import time
 
 win = ttk.Window(themename="darkly")
 win.geometry("1280x720")
@@ -18,13 +18,13 @@ url = tk.StringVar()
 path = tk.StringVar()
 vid_formate = tk.StringVar()
 playlist = []
-pll_streams = []
+# pll_streams = []
 pll_title = []
 error_list = []
+# error_pll_st = []
 vid_formate.set("160kbps")
 
 def append():
-    global YT
     vid_url = url.get()
     if(vid_url==""):
         messagebox.showerror("載入失敗", "未輸入網址")
@@ -36,7 +36,7 @@ def append():
             playlist.append(vid_url)
             pll_title.append(info)
             status_txt.insert(INSERT, (info+'\n'))
-            pll_streams.append(YT.streams)
+            # pll_streams.append(YT.streams)
         
         except:
             res = messagebox.askretrycancel("載入失敗", "無法載入網址，請檢察網址或重試")
@@ -51,10 +51,7 @@ def folder(sel):
         vid_path = download()
 
     if(sel==True):
-        return download()
-    
-    # else:
-    #     os.system(path_function())
+        return vid_path
 
 def clear():
     status_txt.delete('1.0', 'end')
@@ -65,18 +62,29 @@ def music_download():
         messagebox.showerror("下載失敗", "未載入下載列表")
 
     else:
-        for i in range(len(pll_streams)):
+        clear()
+        for i in range(len(playlist)):
             try:
-                status_txt.insert(INSERT, ("正在下載", pll_title[i], '\n'))
+                # status_txt.insert(INSERT, ("正在下載", pll_title[i], '\n'))
+                messagebox.showinfo("正在下載", "正在下載 {}".format(pll_title[i]))
                 opt = vid_formate.get()
+                YT = YouTube(playlist[i])
                 YT.streams.filter(type="audio", abr=opt).first().download(vid_path)
-                status_txt.insert(INSERT, "下載完成", '\n')
+                messagebox.showinfo("作業完成", "{} 下載完成".format(pll_title[i]))
+                # status_txt.insert(INSERT, "下載完成", '\n')                
 
             except:
-                res = messagebox.askretrycancel("下載失敗", "無法完成下載")
-                if(res==True):
-                    music_download()
-                    
+                error_list.append(playlist[i])
+                status_txt.insert(INSERT, "{} 無法完成下載".format(pll_title[i]), '\n')
+                # res = messagebox.askretrycancel("下載失敗", "無法完成下載")
+                # if(res==True):
+                #     music_download()
+
+        if(len(error_list)!=0):
+            res = messagebox.askretrycancel("下載失敗", "{}項作業無法完成".format(len(error_list)))
+            if(res==True):
+                music_download()
+
         '''
         try:
             for i in range(len(pll_streams)):
@@ -119,11 +127,11 @@ def delete():
 
 def DL():
     if(len(pll_title)==0):
-        status_txt.delete('1.0', 'end')
+        clear()
         status_txt.insert(INSERT, "Download List is Empty") 
 
     for i in range(len(pll_title)):
-        status_txt.delete('1.0', 'end')
+        clear()
         status_txt.insert(INSERT, (pll_title[i], '\n')) 
 
 def info():
@@ -131,7 +139,7 @@ def info():
 
 def err_list():
     if(len(error_list)==0):
-        status_txt.delete('1.0', 'end')
+        clear()
         status_txt.insert(INSERT, "There's no Error here") 
     
     # print("err_list")
