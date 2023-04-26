@@ -8,6 +8,7 @@ import ttkbootstrap as ttk
 # import os
 import time
 
+ver = str("1.0")
 win = ttk.Window(themename="darkly")
 win.geometry("1280x720")
 win.title("YouTube Music Downloader")
@@ -65,13 +66,15 @@ def music_download():
         clear()
         for i in range(len(playlist)):
             try:
-                # status_txt.insert(INSERT, ("正在下載", pll_title[i], '\n'))
+                status_txt.insert(INSERT, ("正在下載", pll_title[i], '\n'))
                 messagebox.showinfo("正在下載", "正在下載 {}".format(pll_title[i]))
                 opt = vid_formate.get()
                 YT = YouTube(playlist[i])
                 YT.streams.filter(type="audio", abr=opt).first().download(vid_path)
                 messagebox.showinfo("作業完成", "{} 下載完成".format(pll_title[i]))
-                # status_txt.insert(INSERT, "下載完成", '\n')                
+                status_txt.insert(INSERT, "下載完成", '\n') 
+                if(playlist[i] in error_list):
+                    del error_list[playlist[i]]               
 
             except:
                 error_list.append(playlist[i])
@@ -147,6 +150,7 @@ def err_list():
 class GUI_interface:
     global status_txt
     ttk.Label(win, text="YouTube Music Downloader", font=("微軟正黑體", 20)).place(x=10, y=10)
+    ttk.Label(win, text=("Version "+ ver), font=("微軟正黑體", 12)).place(x=1160, y=10)
     ttk.Label(win, text="輸入YouTube網址", font=("微軟正黑體", 14)).place(x=10, y=90)
     ttk.Entry(win, font=("微軟正黑體", 16), width=67, textvariable=url).place(x=10, y=137)
     tk.Button(win, text="Append", font=("微軟正黑體", 13), command=append).place(x=1116, y=131, width=154, height=62)  
