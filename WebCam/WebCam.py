@@ -3,7 +3,8 @@ import cv2
 import requests
 import time
 
-url = "http://"+str(input("input url: ")+"/shot.jpg")
+# url = "http://"+str(input("input url: ")+"/shot.jpg")
+url = "http://{}/shot.jpg".format(str(input("input url: ")))
 time_output = time.ctime(time.time())
 print(url)
 print(time_output)
