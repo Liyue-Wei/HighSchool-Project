@@ -14,10 +14,11 @@ win.geometry("1280x720")
 win.title("YouTube Music Downloader")
 win.resizable(0, 0)
 
-global url, vid_path, vid_url, playlist, pll_title, error_list
+global url, vid_path, vid_url, playlist, pll_title, error_list, del_list
 url = tk.StringVar()
 path = tk.StringVar()
 vid_formate = tk.StringVar()
+del_list = tk.StringVar()
 playlist = []
 # pll_streams = []
 pll_title = []
@@ -72,9 +73,7 @@ def music_download():
                 YT = YouTube(playlist[i])
                 YT.streams.filter(type="audio", abr=opt).first().download(vid_path)
                 messagebox.showinfo("作業完成", "{} 下載完成".format(pll_title[i]))
-                status_txt.insert(INSERT, "下載完成", '\n') 
-                if(playlist[i] in error_list):
-                    del error_list[playlist[i]]               
+                status_txt.insert(INSERT, "下載完成", '\n')                
 
             except:
                 error_list.append(playlist[i])
@@ -85,6 +84,7 @@ def music_download():
 
         if(len(error_list)!=0):
             res = messagebox.askretrycancel("下載失敗", "{}項作業無法完成".format(len(error_list)))
+            playlist = error_list
             if(res==True):
                 music_download()
 
@@ -126,7 +126,16 @@ def music_download():
 #     print("select")
 
 def delete():
-    print("del")
+    pre_del_list = del_list.get()
+    if(pre_del_list in playlist):
+        playlist.remove(pre_del_list)
+    
+    elif(pre_del_list in pll_title):
+        pll_title.remove(pre_del_list)
+
+    else:
+        clear()
+        status_txt.insert(INSERT, "There's no such file that required to be removed.")
 
 def DL():
     if(len(pll_title)==0):
@@ -138,14 +147,17 @@ def DL():
         status_txt.insert(INSERT, (pll_title[i], '\n')) 
 
 def info():
-    print("info")
+    clear()
+    status_txt.insert(INSERT, "下載位置：{}".format(folder(True)))
 
 def err_list():
     if(len(error_list)==0):
         clear()
         status_txt.insert(INSERT, "There's no Error here") 
-    
-    # print("err_list")
+
+    else:
+        clear()
+        status_txt.insert(INSERT, error_list)
 
 class GUI_interface:
     global status_txt
@@ -157,13 +169,16 @@ class GUI_interface:
     ttk.Label(win, text="下載位置 (預設為Download)", font=("微軟正黑體", 14)).place(x=10, y=220)
     # tk.Button(win, text="Open", font=("微軟正黑體", 11), command=folder(False)).place(x=559, y=330, width=120, height=48)
     ttk.Frame(win, height=192, width=5, style="darkly").place(x=695, y=204)
-    ttk.Label(win, text="編輯預下載列表", font=("微軟正黑體", 14)).place(x=713, y=220)
-    tk.Button(win, text="Delete", font=("微軟正黑體", 13), command=delete).place(x=1116, y=261, width=154, height=62)
-    tk.Radiobutton(win, text="由網址刪除", font=("微軟正黑體", 11)).place(x=713, y=340)
-    tk.Radiobutton(win, text="由歌名刪除", font=("微軟正黑體", 11)).place(x=884, y=340)
-    tk.Radiobutton(win, text="由錯誤列表自動刪除", font=("微軟正黑體", 11)).place(x=1050, y=340)
+    
+    ttk.Label(win, text="新功能開發中", font=("微軟正黑體", 28)).place(x=713, y=220)
+    # ttk.Label(win, text="編輯預下載列表", font=("微軟正黑體", 14)).place(x=713, y=220)
+    # tk.Button(win, text="Delete", font=("微軟正黑體", 13), command=delete).place(x=1116, y=261, width=154, height=62)
+    # tk.Radiobutton(win, text="由網址刪除", font=("微軟正黑體", 11)).place(x=713, y=340)
+    # tk.Radiobutton(win, text="由歌名刪除", font=("微軟正黑體", 11)).place(x=884, y=340)
+    # tk.Radiobutton(win, text="由錯誤列表自動刪除", font=("微軟正黑體", 11)).place(x=1050, y=340)
+    # ttk.Entry(win, font=("微軟正黑體", 16), width=23).place(x=713, y=268)
+
     ttk.Entry(win, font=("微軟正黑體", 16), width=41, textvariable=path).place(x=10, y=268)
-    ttk.Entry(win, font=("微軟正黑體", 16), width=23).place(x=713, y=268)
     ttk.Label(win, text="詳細資訊", font=("微軟正黑體", 14)).place(x=10, y=350)
     ttk.Frame(win, height=5, width=1260, style="darkly").place(x=10, y=395)
     tk.Button(win, text="Download", font=("微軟正黑體", 13), command=music_download).place(x=1116, y=415, width=148, height=288)
@@ -177,13 +192,15 @@ class GUI_interface:
     status_txt = tk.Text(win, font=("微軟正黑體", 12))
     status_txt.place(x=15, y=413, width=803, height=220)
     tk.Button(win, text="Download List", font=("微軟正黑體", 13), command=DL).place(x=15, y=645, width=168, height=62)
-    tk.Button(win, text="Information", font=("微軟正黑體", 13), command=info).place(x=195, y=645, width=154, height=62)
+    # tk.Button(win, text="Information", font=("微軟正黑體", 13), command=info).place(x=195, y=645, width=154, height=62)
+    tk.Button(win, text="Path Info", font=("微軟正黑體", 13), command=info).place(x=195, y=645, width=154, height=62)
     tk.Button(win, text="Error List", font=("微軟正黑體", 13), command=err_list).place(x=360, y=645, width=154, height=62)
     tk.Button(win, text="Clear", font=("微軟正黑體", 13), command=clear).place(x=664, y=645, width=154, height=62)
+    
     win.mainloop()
 
 '''
-https://www.youtube.com/watch?v=oLtvUWpAnTQ
-https://www.youtube.com/watch?v=bD8RT0ub--0
-https://www.youtube.com/watch?v=9wV1VxlfBlI
+https://www.youtube.com/watch?v=L7kF4MXXCoA
+https://www.youtube.com/watch?v=zyXmsVwZqX4
+https://www.youtube.com/watch?v=9iHM6X6uUH8
 '''
