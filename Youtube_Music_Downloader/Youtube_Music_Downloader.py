@@ -5,7 +5,7 @@ from tkinter import INSERT
 from tkinter import messagebox
 import ttkbootstrap as ttk
 
-ver = str("1.0")
+ver = str("Test")
 win = ttk.Window(themename="darkly")
 win.geometry("1280x720")
 win.title("YouTube Music Downloader")
