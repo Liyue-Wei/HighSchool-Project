@@ -165,7 +165,7 @@ class GUI_interface:
     tk.Button(win, text="Append", font=("微軟正黑體", 13), command=append).place(x=1116, y=131, width=154, height=62)  
     tk.Label(win, text="下載位置 (預設為Download)", font=("微軟正黑體", 14)).place(x=10, y=220)
     # tk.Button(win, text="Open", font=("微軟正黑體", 11), command=folder(False)).place(x=559, y=330, width=120, height=48)
-    tk.Frame(win, height=192, width=5).place(x=695, y=204)
+    # tk.Frame(win, height=192, width=5, style="darkly").place(x=695, y=204)
     
     tk.Label(win, text="新功能開發中", font=("微軟正黑體", 28)).place(x=713, y=220)
     # ttk.Label(win, text="編輯預下載列表", font=("微軟正黑體", 14)).place(x=713, y=220)
@@ -177,10 +177,10 @@ class GUI_interface:
 
     tk.Entry(win, font=("微軟正黑體", 16), width=41, textvariable=path).place(x=10, y=268)
     tk.Label(win, text="詳細資訊", font=("微軟正黑體", 14)).place(x=10, y=350)
-    tk.Frame(win, height=5, width=1260).place(x=10, y=395)
+    # tk.Frame(win, height=5, width=1260, style="darkly").place(x=10, y=395)
     tk.Button(win, text="Download", font=("微軟正黑體", 13), command=music_download).place(x=1116, y=415, width=148, height=288)
-    tk.Frame(win, height=315, width=5).place(x=1095, y=395)
-    tk.Frame(win, height=315, width=5).place(x=831, y=395)
+    # tk.Frame(win, height=315, width=5, style="darkly").place(x=1095, y=395)
+    # tk.Frame(win, height=315, width=5, style="darkly").place(x=831, y=395)
     tk.Label(win, text="Format", font=("微軟正黑體", 13)).place(x=847, y=420)
     tk.Radiobutton(win, text="mp4 - 48kbps", font=("微軟正黑體", 13), value="48kbps", variable=vid_formate).place(x=847, y=471)
     tk.Radiobutton(win, text="mp4 - 128kbps", font=("微軟正黑體", 13), value="128kbps", variable=vid_formate).place(x=847, y=531)
