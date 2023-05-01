@@ -1,5 +1,12 @@
 from pytube import YouTube
 from download_path import download
+import os
+
+ver = str("{} - non GUI edition".format(1.0))
+
+'''
+from pytube import YouTube
+from download_path import download
 import tkinter as tk
 from tkinter import INSERT
 from tkinter import messagebox
@@ -85,7 +92,6 @@ def music_download():
             if(res==True):
                 music_download()
 
-        '''
         try:
             for i in range(len(pll_streams)):
                 status_txt.insert(INSERT, ("正在下載", pll_title[i], '\n'))
@@ -100,9 +106,7 @@ def music_download():
                 music_download()
 
             status_txt.insert(INSERT, (pll_title[i], '\n'))        
-        '''
 
-'''
     else:
         try:
             YT = YouTube(vid_url)
@@ -116,7 +120,6 @@ def music_download():
         
         except:
             messagebox.showerror("下載失敗", "查無此影片")
-'''
 
 # def select():
 #     vid_path = path.get()
@@ -195,6 +198,7 @@ class GUI_interface:
     tk.Button(win, text="Clear", font=("微軟正黑體", 13), command=clear).place(x=664, y=645, width=154, height=62)
     
     win.mainloop()
+'''
 
 '''
 https://www.youtube.com/watch?v=L7kF4MXXCoA
