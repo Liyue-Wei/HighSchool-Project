@@ -2,7 +2,7 @@ from pytube import YouTube
 from download_path import download
 import os
 
-print(str("{} - non GUI edition".format(1.0)))
+print(str("Version {} - non GUI edition".format(1.0)))
 
 selection = False
 def clr(sel):
@@ -45,7 +45,6 @@ while(selection == False):
     except:
         print("Error")
         clr(False)
-
 
 '''
 from pytube import YouTube
