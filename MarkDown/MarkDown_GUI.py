@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from path_fun import path_function
 import markdown
 import codecs
 import os
@@ -11,6 +12,7 @@ win.title("MarkDown to HTML")
 global file_name
 file_name = tk.StringVar()
 
+'''
 def path():
     file_path = os.path.abspath(os.path.dirname(__file__))
     length = len(file_path)
@@ -30,6 +32,7 @@ def path_function():
     file_path.append(direct_path)
     file_path = "".join(file_path)
     return(file_path)
+'''
 
 def convert():
     try:
