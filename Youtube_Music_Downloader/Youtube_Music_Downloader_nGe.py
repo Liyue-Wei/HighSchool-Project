@@ -2,7 +2,50 @@ from pytube import YouTube
 from download_path import download
 import os
 
-ver = str("{} - non GUI edition".format(1.0))
+print(str("{} - non GUI edition".format(1.0)))
+
+selection = False
+def clr(sel):
+    if(sel==True):
+        del url
+        selection = False  
+        print("retype url or press any key to break")
+    
+    else:
+        dol()
+
+def dol():
+    try:
+        print("processing")
+        url_streams.get_audio_only().download()
+        print("finish process")
+    
+    except:
+        print("Error")
+
+while(selection == False):
+    url = YouTube(input("input url : "))
+    url_streams = url.streams
+    url_title = url.title
+    
+    try:
+        print(url_title)
+        check = input("Y/N : ")
+
+        if(check == "Y"):
+            selection = True
+            print("processing")
+            url_streams.get_audio_only().download()
+            print("finish process")
+            selection = False
+        
+        else:
+            clr(True)
+    
+    except:
+        print("Error")
+        clr(False)
+
 
 '''
 from pytube import YouTube
