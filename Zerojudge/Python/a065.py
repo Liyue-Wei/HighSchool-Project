@@ -1,5 +1,11 @@
 i = str(input())
 n = []
 for t in range(len(i)):
-    n.append(int(i[t]))
-print(n)
+    try:
+        n.append(abs(ord(i[t+1])-ord(i[t])))
+    except:
+        break
+for l in range(len(n)):
+    print(n[l], end="")
+
+
