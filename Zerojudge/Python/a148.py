@@ -5,7 +5,7 @@ while(True):
         t = 0
         for n in range(1, len(i)):
             t+=int(i[n])
-        if(t/int(i[0])>=60):
+        if(t/float(i[0])>59):
             print("no")
         else:
             print("yes")
