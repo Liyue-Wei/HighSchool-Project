@@ -1,0 +1,1 @@
+print("Go, {}, go go".format(input()))
