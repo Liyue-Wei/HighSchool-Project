@@ -28,11 +28,14 @@ def append():
         
     else:
         try:
-            YT = YouTube(vid_url)
-            info = YT.title
-            playlist.append(vid_url)
-            pll_title.append(info)
-            status_txt.insert(INSERT, (info+'\n'))
+            # YT = YouTube(vid_url)
+            # info = YT.title
+            # playlist.append(vid_url)
+
+            pll_title.append(vid_url)
+
+            # pll_title.append(info)
+            # status_txt.insert(INSERT, (info+'\n'))
         
         except:
             res = messagebox.askretrycancel("載入失敗", "無法載入網址，請檢察網址或重試")
@@ -81,14 +84,16 @@ def music_download():
 
 def delete():
     pre_del_list = del_list.get()
-    if(pre_del_list in playlist):
-        playlist.remove(pre_del_list)
+    clear()
+    # if(pre_del_list in playlist):
+    #     playlist.remove(pre_del_list)
     
-    # elif(pre_del_list in pll_title):
-    #     pll_title.remove(pre_del_list)
+    if(pre_del_list in pll_title):
+        pll_title.remove(pre_del_list)
+        status_txt.insert(INSERT, "'{}'\n Had been removed".format(pre_del_list))
+        del_list.set("")
 
     else:
-        clear()
         status_txt.insert(INSERT, "There's no such file that required to be removed.")
 
 def DL():
