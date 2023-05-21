@@ -97,12 +97,11 @@ def delete():
         status_txt.insert(INSERT, "There's no such file that required to be removed.")
 
 def DL():
-    if(len(pll_title)==0):
-        clear()
+    clear()
+    if(len(pll_title)==0): 
         status_txt.insert(INSERT, "Download List is Empty") 
 
     for i in range(len(pll_title)):
-        clear()
         status_txt.insert(INSERT, (pll_title[i], '\n')) 
 
 def info():
