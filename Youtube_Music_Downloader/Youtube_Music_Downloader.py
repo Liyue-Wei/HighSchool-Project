@@ -123,13 +123,13 @@ class GUI_interface:
     ttk.Label(win, text="下載位置 (預設為Download)", font=("微軟正黑體", 14)).place(x=10, y=220)
     ttk.Frame(win, height=192, width=5, style="darkly").place(x=695, y=204)
     
-    # ttk.Label(win, text="新功能開發中", font=("微軟正黑體", 28)).place(x=713, y=220)
-    ttk.Label(win, text="編輯下載列表", font=("微軟正黑體", 14)).place(x=713, y=220) 
-    tk.Button(win, text="Delete", font=("微軟正黑體", 13), command=delete).place(x=1116, y=261, width=154, height=62)
+    ttk.Label(win, text="新功能開發中", font=("微軟正黑體", 28)).place(x=713, y=220)
+    # ttk.Label(win, text="編輯下載列表", font=("微軟正黑體", 14)).place(x=713, y=220) 
+    # tk.Button(win, text="Delete", font=("微軟正黑體", 13), command=delete).place(x=1116, y=261, width=154, height=62)
     # tk.Radiobutton(win, text="由網址刪除", font=("微軟正黑體", 11)).place(x=713, y=340)
     # tk.Radiobutton(win, text="由歌名刪除", font=("微軟正黑體", 11)).place(x=884, y=340)
     # tk.Radiobutton(win, text="由錯誤列表自動刪除", font=("微軟正黑體", 11)).place(x=1050, y=340)
-    ttk.Entry(win, font=("微軟正黑體", 16), width=23, textvariable=del_list).place(x=713, y=268)
+    # ttk.Entry(win, font=("微軟正黑體", 16), width=23, textvariable=del_list).place(x=713, y=268)
 
     ttk.Entry(win, font=("微軟正黑體", 16), width=41, textvariable=path).place(x=10, y=268)
     ttk.Label(win, text="詳細資訊", font=("微軟正黑體", 14)).place(x=10, y=350)
