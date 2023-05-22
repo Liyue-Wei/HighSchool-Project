@@ -21,6 +21,9 @@ pll_title = []
 error_list = []
 vid_formate.set("160kbps")
 
+def clear():
+    status_txt.delete('1.0', 'end')
+
 def append():
     vid_url = url.get()
     if(vid_url==""):
@@ -28,14 +31,11 @@ def append():
         
     else:
         try:
-            # YT = YouTube(vid_url)
-            # info = YT.title
-            # playlist.append(vid_url)
-
-            pll_title.append(vid_url)
-
-            # pll_title.append(info)
-            # status_txt.insert(INSERT, (info+'\n'))
+            YT = YouTube(vid_url)
+            info = YT.title
+            playlist.append(vid_url)
+            pll_title.append(info)
+            status_txt.insert(INSERT, (info+'\n'))
         
         except:
             res = messagebox.askretrycancel("載入失敗", "無法載入網址，請檢察網址或重試")
@@ -52,12 +52,10 @@ def folder(sel):
     if(sel==True):
         return vid_path
 
-def clear():
-    status_txt.delete('1.0', 'end')
-
 def music_download():
     vid_path = folder(True)
-    if(len(playlist)==0):
+    pl_len = len(playlist)
+    if(pl_len==0):
         messagebox.showerror("下載失敗", "未載入下載列表")
 
     else:
@@ -78,18 +76,17 @@ def music_download():
 
         if(len(error_list)!=0):
             res = messagebox.askretrycancel("下載失敗", "{}項作業無法完成".format(len(error_list)))
-            playlist = error_list
+            # playlist = error_list
             if(res==True):
                 music_download()
 
 def delete():
     pre_del_list = del_list.get()
     clear()
-    # if(pre_del_list in playlist):
-    #     playlist.remove(pre_del_list)
-    
-    if(pre_del_list in pll_title):
-        pll_title.remove(pre_del_list)
+    if(pre_del_list in playlist):
+        pre_del_title = playlist.index(pre_del_list)
+        playlist.remove(pre_del_list)
+        pll_title.pop(pre_del_title)
         status_txt.insert(INSERT, "'{}'\n Had been removed".format(pre_del_list))
         del_list.set("")
 
@@ -119,7 +116,7 @@ def err_list():
 
 class GUI_interface:
     global status_txt
-    ttk.Label(win, text="YouTube Music Downloader", font=("微軟正黑體", 20)).place(x=10, y=10)
+    # ttk.Label(win, text="YouTube Music Downloader", font=("微軟正黑體", 20)).place(x=10, y=10)
     ttk.Label(win, text=("Version "+ ver), font=("微軟正黑體", 12)).place(x=1160, y=10)
     ttk.Label(win, text="輸入YouTube網址", font=("微軟正黑體", 14)).place(x=10, y=90)
     ttk.Entry(win, font=("微軟正黑體", 16), width=67, textvariable=url).place(x=10, y=137)
@@ -127,11 +124,8 @@ class GUI_interface:
     ttk.Label(win, text="下載位置 (預設為Download)", font=("微軟正黑體", 14)).place(x=10, y=220)
     ttk.Frame(win, height=192, width=5, style="darkly").place(x=695, y=204)
     
-    # ttk.Label(win, text="新功能開發中", font=("微軟正黑體", 28)).place(x=713, y=220)
     ttk.Label(win, text="編輯下載列表", font=("微軟正黑體", 14)).place(x=713, y=220) 
     tk.Button(win, text="Delete", font=("微軟正黑體", 13), command=delete).place(x=1116, y=261, width=154, height=62)
-    # tk.Radiobutton(win, text="由網址刪除", font=("微軟正黑體", 11)).place(x=713, y=340)
-    # tk.Radiobutton(win, text="由錯誤列表自動刪除", font=("微軟正黑體", 11)).place(x=884, y=340)
     ttk.Entry(win, font=("微軟正黑體", 16), width=23, textvariable=del_list).place(x=713, y=268)
 
     ttk.Entry(win, font=("微軟正黑體", 16), width=41, textvariable=path).place(x=10, y=268)
