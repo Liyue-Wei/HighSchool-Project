@@ -25,6 +25,7 @@ def clear():
     status_txt.delete('1.0', 'end')
 
 def append():
+    clear()
     vid_url = url.get()
     if(vid_url==""):
         messagebox.showerror("載入失敗", "未輸入網址")
@@ -74,11 +75,11 @@ def music_download():
                 error_list.append(playlist[i])
                 status_txt.insert(INSERT, "{} 無法完成下載".format(pll_title[i]), '\n')
 
+        playlist.clear()
+        pll_title.clear()
+        
         if(len(error_list)!=0):
-            res = messagebox.askretrycancel("下載失敗", "{}項作業無法完成".format(len(error_list)))
-            # playlist = error_list
-            if(res==True):
-                music_download()
+            messagebox.showerror("下載失敗", "{}項作業無法完成".format(len(error_list)))
 
 def delete():
     pre_del_list = del_list.get()
