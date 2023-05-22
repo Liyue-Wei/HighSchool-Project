@@ -53,7 +53,6 @@ def error_list_send():
     msg_time = time.strftime("%m/%d/%Y %H:%M:%S", time.localtime())
     msg.set_content(msg_time+"錯誤列表: "+error_list_str)
     
-
     server = smtplib.SMTP_SSL("SMTP伺服器", "TCP埠")
     server.login("主機email帳號", "密碼")
     server.send_message(msg)
