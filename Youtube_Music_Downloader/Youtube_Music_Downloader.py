@@ -69,12 +69,12 @@ def music_download():
                 YT = YouTube(playlist[i])
                 YT.streams.filter(type="audio", abr=opt).first().download(vid_path)
                 messagebox.showinfo("作業完成", "{} 下載完成".format(pll_title[i]))
-                status_txt.insert(INSERT, "下載完成", '\n')                
+                status_txt.insert(INSERT, ("下載完成", '\n'))                
 
             except:
                 error_list.append(playlist[i])
                 error_title.append(pll_title[i])
-                status_txt.insert(INSERT, "{} 無法完成下載".format(pll_title[i]), '\n')
+                status_txt.insert(INSERT, ("{} 無法完成下載".format(pll_title[i]), '\n'))
 
         playlist.clear()
         pll_title.clear()
@@ -96,10 +96,10 @@ def err_download():
             YT = YouTube(error_list[i])
             YT.streams.filter(type="audio", abr=opt).first().download(vid_path)
             messagebox.showinfo("作業完成", "{} 下載完成".format(error_title[i]))
-            status_txt.insert(INSERT, "下載完成", '\n')                
+            status_txt.insert(INSERT, ("下載完成", '\n'))                
 
         except:
-            status_txt.insert(INSERT, "{} 無法完成下載".format(error_title[i]), '\n')
+            status_txt.insert(INSERT, ("{} 無法完成下載".format(error_title[i]), '\n'))
 
         error_title.clear()
         error_list.clear()
