@@ -136,7 +136,8 @@ def err_list():
 
     else:
         clear()
-        status_txt.insert(INSERT, error_list)
+        for i in range(len(error_list)):
+            status_txt.insert(INSERT, (error_list[i], '\n'))
 
 class GUI_interface:
     global status_txt
