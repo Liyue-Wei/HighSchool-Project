@@ -1,3 +1,7 @@
+'''
+Install cupy before running this file. 
+'''
+
 import os
 import numpy as np
 import time
