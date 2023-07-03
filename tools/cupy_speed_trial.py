@@ -25,5 +25,5 @@ try:
     program()
 
 except:
-    print("Cuda not avaliable")
+    print("Cuda or cupy not avaliable")
     os.system('pause')
