@@ -6,16 +6,13 @@ import os
 import glob
 
 cam = cv2.VideoCapture(0)
-try:
-    cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-    cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-    # print("{}x{} {}fps".format(1280, 720, 30))
+# cam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+# cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
-except:
-    width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))  
-    height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = int(cam.get(cv2.CAP_PROP_FPS))
-    print("{}x{} {}fps".format(width, height, fps))
+width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))  
+height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps = int(cam.get(cv2.CAP_PROP_FPS))
+print("{}x{} {}fps".format(width, height, fps))
 
 if not cam.isOpened():
     print("Camera is not available")
@@ -26,7 +23,11 @@ while True:
     if not ret:
         print("Camera is not available")
         break
-
-    cv2.imshow('FRS', img)   
+    
+    # cv2.imshow('FRS', img)
+    kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
+    img = cv2.filter2D(img, -1, kernel)
+    cv2.imshow('FRS enhanced', img)   
+    
     if cv2.waitKey(1) == 27:    #ESC
         break             
