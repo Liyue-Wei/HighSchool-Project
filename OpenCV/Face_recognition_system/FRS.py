@@ -1,13 +1,11 @@
-import cv2
 import numpy as np
-# import cupy as cp
+import cv2
+import requests
 import time
-import os
-import glob
 
 cam = cv2.VideoCapture(0)
-# cam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
-# cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
+cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
 width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))  
 height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -24,7 +22,7 @@ while True:
         print("Camera is not available")
         break
     
-    # cv2.imshow('FRS', img)
+    cv2.imshow('FRS', img)
     kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
     img = cv2.filter2D(img, -1, kernel)
     cv2.imshow('FRS enhanced', img)   
