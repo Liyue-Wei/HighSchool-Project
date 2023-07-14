@@ -12,10 +12,9 @@ print(time_output)
 while True: 
     img_req = requests.get(url) 
     WebCam = np.array(bytearray(img_req.content), dtype=np.uint8)
-    cv2.namedWindow("WebCam", cv2.WINDOW_NORMAL) 
     img = cv2.imdecode(WebCam, cv2.IMREAD_COLOR) 
     cv2.imshow("WebCam", img) 
-    key = cv2.waitKey(10)
+    key = cv2.waitKey(1)
 
     if key == 27:    #ESC
         break
