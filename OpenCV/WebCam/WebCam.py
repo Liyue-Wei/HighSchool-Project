@@ -4,7 +4,7 @@ import requests
 import time
 
 # url = "http://"+str(input("input url: ")+"/shot.jpg")
-url = "http://{}/shot.jpg".format(str(input("input url: ")))
+url = "http://{}/shot.jpg".format(str(input("input IP address: ")))
 time_output = time.ctime(time.time())
 print(url)
 print(time_output)
