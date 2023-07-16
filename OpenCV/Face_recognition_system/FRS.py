@@ -4,8 +4,8 @@ import requests
 import time
 
 cam = cv2.VideoCapture(0)
-# cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-# cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+# cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+# cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 360)
 
 width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))  
 height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
