@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 import random
 import pyautogui
 import time
@@ -7,12 +8,14 @@ import email.message
 import smtplib
 
 msg = email.message.EmailMessage()
-driver = webdriver.Chrome()
+opt = Options()
+opt.add_argument('--headless')
+driver = webdriver.Chrome(options=opt)
 
 global ID, url, ID_list, times, count, error_list
 url = "https://webap1.kshs.kh.edu.tw/kshsSSO/publicWebAP/bodyTemp/index.aspx"
 ID_list = ["身分證字號"]
-email = []
+email = ["email"]
 error_list = []
 count = len(ID_list)  
 print(count)
