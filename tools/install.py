@@ -9,5 +9,5 @@ try:
     os.system("pip install "+"cupy-cuda12x")    #根据Cuda版本变更cupy安装版本
 
 except:
-    print("Cuda not avaliable")
+    print("Cuda environment not avaliable")
     os.system('pause')
