@@ -23,7 +23,7 @@ while True:
         print("Camera is not available")
         break
 
-    img = cv2.resize(img, (0, 0), fx=2.0, fy=2.0)
+    # img = cv2.resize(img, (0, 0), fx=2.0, fy=2.0)
     cv2.imshow('FRS', img)
     kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
     img = cv2.filter2D(img, -1, kernel)
