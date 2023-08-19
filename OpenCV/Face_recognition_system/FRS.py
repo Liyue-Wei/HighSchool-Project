@@ -1,12 +1,11 @@
 import numpy as np
-# import cupy as cp
 import cv2
 import requests
 import time
 
 cam = cv2.VideoCapture(0)
-# cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-# cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+cam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
 width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))  
 height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
