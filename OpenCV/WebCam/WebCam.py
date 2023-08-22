@@ -3,11 +3,8 @@ import cv2
 import requests
 import time
 
-# url = "http://"+str(input("input url: ")+"/shot.jpg")
 url = "http://{}/shot.jpg".format(str(input("input IP address: ")))
-time_output = time.ctime(time.time())
 print(url)
-print(time_output)
 
 while True: 
     img_req = requests.get(url) 
@@ -20,7 +17,7 @@ while True:
         break
 
     elif key == 13:    #Enter
-        file_name = ("ScreenShot "+time_output+ ".jpeg")
+        file_name = ("ScreenShot "+time.ctime(time.time())+ ".jpeg")
         image = cv2.imwrite(file_name, img)
         
 cv2.destroyAllWindows()
