@@ -11,16 +11,16 @@ if not cam.isOpened():
     print("Camera is not available")
     exit()
 
+width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))  
+height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps = int(cam.get(cv2.CAP_PROP_FPS))
+print("{}x{} {}fps".format(width, height, fps))
+
 while True:
     ret, img = cam.read()
     if not ret:
         print("Camera is not available")
         break
-
-    width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))  
-    height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = int(cam.get(cv2.CAP_PROP_FPS))
-    print("{}x{} {}fps".format(width, height, fps))
 
     # img = cv2.resize(img, (0, 0), fx=2.0, fy=2.0)
     cv2.imshow('FRS', img)
