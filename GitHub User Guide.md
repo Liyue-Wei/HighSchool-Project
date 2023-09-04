@@ -19,8 +19,12 @@ GitHub Repository（GitHub repo）就是GitHub上面的專案資料夾。
 
 更多詳細資訊，請參考[GitHub Docs - Create a repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)。
 
+## GutHub Desktop
+GitHub Desktop是一個由GitHub官方開發的桌面端應用程式，能夠很方便地以圖形化介面來創建GitHub repo，或是操作Git Clone以及Git Push，可以大幅縮短學習時間。
+
 ## Git
 Git Clone、Git Push是Git最常使用到的功能，其主要目的分別為「將Github上的版本下載至本機」以及「將新的版本推送到GitHub上」。
+### 安装Git
 ### git clone
 1. 開啟git bush
 2. 輸入「cd」+目標位置，例如「cd desktop」
@@ -44,7 +48,5 @@ Git Clone、Git Push是Git最常使用到的功能，其主要目的分別為「
 6. 輸入：「git push」
 **~註：若git~** **~bush回報「Everything~** **~up-to-date」，重新執行第四、五步驟~**
 7. 等Git Bush執行完成，GitHub Repositories裡面可以找到新增的檔案
-
-## GutHub Desktop
 ___
 ### Authored by [**Liyue-Wei**](https://github.com/Liyue-Wei) on GitHub
