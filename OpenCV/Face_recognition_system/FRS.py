@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-# import requests
 import time
 
 cam = cv2.VideoCapture(0)
