@@ -24,14 +24,17 @@ GitHub Desktop是一個由GitHub官方開發的桌面端應用程式，能夠很
 ### 安裝GitHub Desktop
 GutHub Desktop的安裝步驟非常簡單。
 1. 前往[GutHub Desktop](https://desktop.github.com/)，選擇"**Download for Windows**" 
-**~註：Mac~ ~OS或許會是Download~ ~for~ ~Mac~ ~OS~**
-2. 安裝GitHub Desktop，全部都選下一步即可
+**~註：Mac~ ~OS或許會是Download~ ~for~ ~Mac~ ~OS~**![](https://hackmd.io/_uploads/Sy7YlM3A2.png)
+2. 安裝GitHub Desktop，過程不需按下一步
+3. 登入GitHub帳號，即可開始使用GitHub Desktop![](https://hackmd.io/_uploads/SkntgG2Rh.png)
+
 
 ## Git
 Git Clone、Git Push是Git最常使用到的功能，其主要目的分別為「將Github上的版本下載至本機」以及「將新的版本推送到GitHub上」。
 ### 安装Git
-1. 前往[Git](https://git-scm.com/downloads)，依作業系統下載，Windows直接選擇"**Download for Windows**"
-2. 安裝Git，同樣全部都選下一步，不建議修改預設安裝的選項
+1. 前往[Git](https://git-scm.com/downloads)，依作業系統下載，Windows直接選擇"**Download for Windows**"![](https://hackmd.io/_uploads/HkimxMhRh.png)
+2. 選擇"**64-bit Git for Windows Setup**"
+3. 安裝Git，全部都選下一步，不建議修改預設安裝的選項
 ### git clone
 1. 開啟git bush
 2. 輸入「cd」+目標位置，例如「cd desktop」
