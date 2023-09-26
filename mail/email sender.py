@@ -1,78 +1,50 @@
 from DATA import send_email_API as se
 from DATA import path_test as pt
 import tkinter as tk
-import openpyxl
+import openpyxl as xl
+import os
 
 win = tk.Tk()
 win.geometry("600x700")
 win.title("Offline Email Sender")
 win.resizable(0, 0)
 
+def workbook():
+    direct_path = pt.path_function("/settings.xlsx")
+    wb = xl.load_workbook(direct_path)
+    sheet = wb['工作表1']
+
+    smtp = sheet['A1'].value
+    tcp = sheet['A2'].value
+    password = sheet['A3'].value
+    return smtp, tcp, password   
+
 global master, slave, title
 master = tk.StringVar()
 slave = tk.StringVar()
 title = tk.StringVar()
+# content = tk.StringVar()
 # smtp = tk.StringVar()
 # tcp = tk.StringVar()
 # password = tk.StringVar()
 
-'''
 def settings():
-    win_2 = tk.Tk()
-    win_2.geometry("380x260")
-    win_2.title("smtp/tcp settings")
-    
-    global smtp, tcp, password
-    smtp = tk.StringVar()
-    tcp = tk.StringVar()
-    password = tk.StringVar()
-
-    # global smtp_set, tcp_set, pass_set
-    # smtp_set = str()
-    # tcp_set = str()
-    # pass_set = str()
-    # smtp_set = str(smtp.get())
-    # tcp_set = str(tcp.get())
-    # pass_set = str(password.get())
-
-    def finish():
-        global smtp_set, tcp_set, pass_set
-        smtp_set = smtp
-        tcp_set = tcp
-        pass_set = password
-        # print("{}, {}, {}".format(smtp, tcp, password))
-        print("{}, {}, {}".format(smtp_set, tcp_set, pass_set))
-        win_2.destroy()
-
-    class GUI_interface():
-        tk.Label(win_2, text="SMTP", font=("微軟正黑體", 16)).place(x=10, y=10)
-        tk.Entry(win_2, font=("微軟正黑體", 14), width=32, textvariable=smtp).place(x=10, y=40)
-        tk.Label(win_2, text="TCP", font=("微軟正黑體", 16)).place(x=10, y=70)
-        tk.Entry(win_2, font=("微軟正黑體", 14), width=32, textvariable=tcp).place(x=10, y=100)
-        tk.Label(win_2, text="Password", font=("微軟正黑體", 16)).place(x=10, y=130)
-        tk.Entry(win_2, font=("微軟正黑體", 14), width=32, show="*", textvariable=password).place(x=10, y=160)
-        tk.Button(win_2, text="finish", font=("微軟正黑體", 14), command=finish).place(x=300, y=200)
-
-    win_2.mainloop()
-'''
-
-def settings():
-    # leb_1.pack_forget()
-    print("page_2")
+    os.system(pt.path_function("/setting.py"))
 
 def email():
-    result = content.get("1.0","end")
+    con = content.get("1.0", "end-1c") 
     mas = master.get()
     sla = slave.get()
     tit = title.get()
-    # smtp.get()
-    # tcp.get()
-    # password.get()
-    # if(smtp or tcp or password == ""):
-    #     settings()
+    
+    (smtp, tcp, password) = workbook()
 
-    # print("{}, {}, {}".format(smtp_set, tcp_set, pass_set))
-    print("{}, {}, {}".format(mas, sla, tit))
+    if (smtp and tcp and password == "None"):
+        settings()
+
+    se.send(mas, sla, tit, con, smtp, tcp, password)
+    # print("{}, {}, {}, {}".format(mas, sla, tit, con))
+    # print(smtp, tcp, password)
 
 class GUI_interface():
     global content, leb_1, leb_2, leb_3, leb_4, ent_1, ent_2, ent_3
