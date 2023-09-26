@@ -23,10 +23,6 @@ global master, slave, title
 master = tk.StringVar()
 slave = tk.StringVar()
 title = tk.StringVar()
-# content = tk.StringVar()
-# smtp = tk.StringVar()
-# tcp = tk.StringVar()
-# password = tk.StringVar()
 
 def settings():
     os.system(pt.path_function("/setting.py"))
@@ -43,8 +39,6 @@ def email():
         settings()
 
     se.send(mas, sla, tit, con, smtp, tcp, password)
-    # print("{}, {}, {}, {}".format(mas, sla, tit, con))
-    # print(smtp, tcp, password)
 
 class GUI_interface():
     global content, leb_1, leb_2, leb_3, leb_4, ent_1, ent_2, ent_3
