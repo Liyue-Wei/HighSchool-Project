@@ -18,7 +18,7 @@ for t in range(0, i):
 
 if(len(T)!=0 and len(F)!=0):
     print('\n{}\n{}'.format(F[-1], T[0]))
-    
+
 else:
     print('\n{}\n{}'.format(F[-1], "worst case")) if(len(T)==0) else print('\n{}\n{}'.format("best case", T[0]))
     
