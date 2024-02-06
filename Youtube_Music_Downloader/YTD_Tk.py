@@ -1,11 +1,20 @@
-from pytube import YouTube
-from download_path import download
+try:
+    from pytube import YouTube
+    # import ttkbootstrap as ttk
+
+except:
+    from Extension_modules import install
+    install.program()
+
+# from pytube import YouTube
+from Extension_modules import download_path as dp
+# from download_path import download
 import tkinter as tk
 from tkinter import INSERT
 from tkinter import messagebox
 # import ttkbootstrap as ttk
 
-ver = str("1.0")
+ver = str("1.1")
 # win = ttk.Window(themename="darkly")
 win = tk.Tk()
 win.geometry("1280x720")
@@ -50,7 +59,7 @@ def append():
 def folder(sel):
     vid_path = path.get()
     if(vid_path==""):
-        vid_path = download()
+        vid_path = dp.download()
 
     if(sel==True):
         return vid_path
