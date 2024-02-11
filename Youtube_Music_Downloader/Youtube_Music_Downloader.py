@@ -1,10 +1,15 @@
-try:
-    from pytube import YouTube
-    import ttkbootstrap as ttk
+global url, vid_path, vid_url, playlist, pll_title, error_list, del_list, error_title, w1, w2, w3
 
-except:
-    from Extension_modules import install
-    install.program()
+start = False
+while(start==False):
+    try:
+        from pytube import YouTube
+        import ttkbootstrap as ttk
+        start = True
+
+    except:
+        from Extension_modules import install
+        install.program()   
 
 # from pytube import YouTube
 from Extension_modules import download_path as dp
@@ -14,13 +19,23 @@ from tkinter import INSERT
 from tkinter import messagebox
 # import ttkbootstrap as ttk
 
-ver = str("1.1")
+from Extension_modules import resolution_checking_process as rcp
+
+if(rcp.resolution()!=(1920, 1080)):
+    messagebox.showwarning("解析度警告", "解析度非FHD，內容顯示或將出現異常") 
+
+if(rcp.magnification()>=1.25):
+    (w1, w2, w3) = (67, 23, 41)
+
+else:
+    (w1, w2, w3) = (67, 23, 41)
+
+ver = str("test")
 win = ttk.Window(themename="darkly")
 win.geometry("1280x720")
 win.title("YouTube Music Downloader")
 win.resizable(0, 0)
 
-global url, vid_path, vid_url, playlist, pll_title, error_list, del_list, error_title
 url = tk.StringVar()
 path = tk.StringVar()
 vid_formate = tk.StringVar()
@@ -153,16 +168,16 @@ class GUI_interface:
     ttk.Label(win, text="YouTube Music Downloader", font=("微軟正黑體", 20)).place(x=10, y=10)
     ttk.Label(win, text=("Version "+ ver), font=("微軟正黑體", 12)).place(x=1160, y=10)
     ttk.Label(win, text="輸入YouTube網址", font=("微軟正黑體", 14)).place(x=10, y=90)
-    ttk.Entry(win, font=("微軟正黑體", 16), width=67, textvariable=url).place(x=10, y=137)
+    ttk.Entry(win, font=("微軟正黑體", 16), width=w1, textvariable=url).place(x=10, y=137)
     tk.Button(win, text="Append", font=("微軟正黑體", 13), command=append).place(x=1116, y=131, width=154, height=62)  
     ttk.Label(win, text="下載位置 (預設為Download)", font=("微軟正黑體", 14)).place(x=10, y=220)
     ttk.Frame(win, height=192, width=5, style="darkly").place(x=695, y=204)
      
     ttk.Label(win, text="編輯下載列表", font=("微軟正黑體", 14)).place(x=713, y=220) 
     tk.Button(win, text="Delete", font=("微軟正黑體", 13), command=delete).place(x=1116, y=261, width=154, height=62)
-    ttk.Entry(win, font=("微軟正黑體", 16), width=23, textvariable=del_list).place(x=713, y=268)
+    ttk.Entry(win, font=("微軟正黑體", 16), width=w2, textvariable=del_list).place(x=713, y=268)
 
-    ttk.Entry(win, font=("微軟正黑體", 16), width=41, textvariable=path).place(x=10, y=268)
+    ttk.Entry(win, font=("微軟正黑體", 16), width=w3, textvariable=path).place(x=10, y=268)
     ttk.Label(win, text="詳細資訊", font=("微軟正黑體", 14)).place(x=10, y=350)
     ttk.Frame(win, height=5, width=1260, style="darkly").place(x=10, y=395)
     tk.Button(win, text="Download", font=("微軟正黑體", 13), command=music_download).place(x=1116, y=415, width=148, height=288)
