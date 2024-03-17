@@ -5,7 +5,7 @@ while(start==False):
     try:
         from pytube import YouTube
         import ttkbootstrap as ttk
-        from ttkbootstrap.icons import Icon
+        # from ttkbootstrap.icons import Icon
         start = True
 
     except:
