@@ -9,6 +9,7 @@ while(start==False):
     except:
         import os 
         os.system("pip install pywin32")
+        break
 
 def resolution():
     HDC = win32gui.GetDC(0)
