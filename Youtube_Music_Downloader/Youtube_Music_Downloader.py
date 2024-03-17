@@ -5,6 +5,7 @@ while(start==False):
     try:
         from pytube import YouTube
         import ttkbootstrap as ttk
+        from ttkbootstrap.icons import Icon
         start = True
 
     except:
@@ -36,6 +37,7 @@ ver = str("1.2")
 win = ttk.Window(themename="vapor")
 win.geometry("1280x720")
 win.title("YouTube Music Downloader")
+win.iconbitmap('Youtube_Music_Downloader\Extension_modules\YTD.ico')
 win.resizable(0, 0)
 
 url = tk.StringVar()
