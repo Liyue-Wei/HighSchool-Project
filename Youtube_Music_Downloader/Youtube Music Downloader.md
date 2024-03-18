@@ -1,4 +1,4 @@
-# Youtube Music Downloader
+# Youtube Music Downloader - Python 
 
 ## 功能說明：
 ### YTD-Python是一款非網頁端的Youtube音檔下載器，可以同時排程下載多個音訊檔案以及修改音訊格式。用來替代網頁版Youtube下載器，以消除大部分網頁版youtube音樂下載器可能面臨惡意廣告的風險。
@@ -18,3 +18,8 @@
 #### 2023/12/25 - Ver 1.0 - Download Path發現問題。待修改【下載位置應變更為"C:\Users\UserName\Download"】
 #### 2024/02/06 - Ver 1.1 - 修復【預設下載位置已變更為"C:\Users\UserName\Download"】，新增模組檢查及自動安裝功能。
 #### 2024/02/11 - Ver 1.2 - 修復【自動化流程】，完善解析度支援，變更主題配色。
+
+---
+Python Version 3.10.10, Pytube Version 15.0.0
+
+<big>Developed By Liyue Wei on GitHub</big>
