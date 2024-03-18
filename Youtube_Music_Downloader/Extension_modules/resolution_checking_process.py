@@ -9,7 +9,6 @@ while(start==False):
     except:
         from install import program_2 
         program_2()
-        break
 
 def resolution():
     HDC = win32gui.GetDC(0)

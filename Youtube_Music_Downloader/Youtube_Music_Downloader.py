@@ -12,7 +12,6 @@ while(start==False):
         print("組件缺失，將進行自動安裝")
         from Extension_modules import install
         install.program()   
-        break
 
 # from pytube import YouTube
 from Extension_modules import download_path as dp
