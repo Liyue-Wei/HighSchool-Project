@@ -1,7 +1,3 @@
-def install():
-    import os 
-    os.system("pip install pywin32")
-
 start = False
 while(start==False):
     try:
@@ -11,7 +7,8 @@ while(start==False):
         start = True
 
     except:
-        install()
+        from install import program_2 
+        program_2()
         break
 
 def resolution():
