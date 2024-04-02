@@ -32,8 +32,8 @@ if(rcp.magnification()>=1.25):
 else:
     (w1, w2, w3) = (90, 31, 55)
 
-ver = str("1.2")
-win = ttk.Window(themename="vapor")
+ver = str("1.3")
+win = ttk.Window(themename="cerculean")
 win.geometry("1280x720")
 win.title("YouTube Music Downloader")
 win.resizable(0, 0)
@@ -173,7 +173,7 @@ def err_list():
 class GUI_interface:
     global status_txt
     frame_color = ttk.Style()
-    frame_color.configure('1.TFrame', background='SlateBlue4')
+    frame_color.configure('1.TFrame', background='light sky blue')
 
     ttk.Label(win, text="YouTube Music Downloader", font=("微軟正黑體", 20)).place(x=10, y=10)
     ttk.Label(win, text=("Version "+ ver), font=("微軟正黑體", 12)).place(x=1160, y=10)
