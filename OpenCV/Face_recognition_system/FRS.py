@@ -3,12 +3,17 @@ import cv2
 import time
 
 cam = cv2.VideoCapture(0)
-cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
 if not cam.isOpened():
     print("Camera is not available")
     exit()
+
+try:
+    cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+    cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
+except:
+    print("Camera does not support 720p")
 
 width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))  
 height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -24,7 +29,7 @@ while True:
     # img = cv2.resize(img, (0, 0), fx=2.0, fy=2.0)
     cv2.imshow('FRS', img)
     
-    kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
+    kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])  
     img = cv2.filter2D(img, -1, kernel)
     cv2.imshow('FRS enhanced', img) 
     key = cv2.waitKey(1)
