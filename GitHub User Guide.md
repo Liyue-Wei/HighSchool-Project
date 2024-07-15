@@ -35,6 +35,7 @@ Git Clone、Git Push是Git最常使用到的功能，其主要目的分別為「
 1. 前往[Git](https://git-scm.com/downloads)，依作業系統下載，Windows直接選擇"**Download for Windows**"![](https://hackmd.io/_uploads/HkimxMhRh.png)
 2. 選擇"**64-bit Git for Windows Setup**"
 3. 安裝Git，全部都選下一步，不建議修改預設安裝的選項
+
 ### git clone
 1. 開啟git bush
 2. 輸入「cd」+目標位置，例如「cd desktop」
@@ -45,6 +46,14 @@ Git Clone、Git Push是Git最常使用到的功能，其主要目的分別為「
 **~註：上述URL為範例，沒辦法實際執行Clone~**
 5. 等Git Bush執行完成，目標位置會存在一個GitHub專案名稱的資料夾
 **~註：若Git~** **~Bush回報「remote:~** **~Repository~** **~not~** **~found.」，請檢察Clone~** **~URL是否正確~**
+
+### git status
+git status 的用意在於檢視檔案版本是否發生過變更，例如新增或移除，用法如下：
+1. 開啟git bush
+2. 輸入「cd」+目標位置，例如「cd desktop」
+3. 輸入「git status」
+
+若資料夾內部不存在已變更的檔案，會提示「nothing to commit, working tree clean」；反之則會提示已發生變更的檔案，繼續執行以下git push步驟
 
 ### git push
 1. 新增檔案至GitHub專案資料夾
