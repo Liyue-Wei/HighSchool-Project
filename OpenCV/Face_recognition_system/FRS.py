@@ -20,8 +20,8 @@ height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
 fps = int(cam.get(cv2.CAP_PROP_FPS))
 print("{}x{} {}fps".format(width, height, fps))
 
-upscale = 8.0
-downscale = 1/8
+upscale = 4.0
+downscale = 1/4
 
 while True:
     ret, img = cam.read()
