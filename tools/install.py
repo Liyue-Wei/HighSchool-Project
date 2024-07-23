@@ -6,7 +6,6 @@ print("preparing to install {}".format(modules))
 import os
 
 os.system("python.exe -m pip install --upgrade pip")
-os.system("y")
 
 for i in range(0, len(modules)):
     os.system("pip install "+modules[i])
