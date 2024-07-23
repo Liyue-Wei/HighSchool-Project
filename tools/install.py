@@ -1,6 +1,13 @@
+modules = ["ttkbootstrap", "pyautogui", "selenium", "openpyxl", "opencv-python", "numpy", 
+           "markdown", "matplotlib", "pytube", "requests", "pillow", "pygame", "pandas", 
+           "opencv-contrib-python", "pywin32"]
+print("preparing to install {}".format(modules))
+
 import os
 
-modules = ["ttkbootstrap", "pyautogui", "selenium", "openpyxl", "opencv-python", "numpy", "markdown", "matplotlib", "pytube", "requests", "pillow", "pygame", "pandas", "opencv-contrib-python"]
+os.system("python.exe -m pip install --upgrade pip")
+os.system("y")
+
 for i in range(0, len(modules)):
     os.system("pip install "+modules[i])
 
