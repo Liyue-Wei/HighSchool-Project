@@ -5,8 +5,9 @@ int main()
     int i;
     while(cin >> i)
     {
-        if(i%4==0 && i%100!=0 || i%400==0)  cout << "¶|¦~" << endl;
-        else    cout << "¥­¦~" << endl;
+        if(i%4==0 && i%100!=0 || i%400==0)  cout << "ï¿½|ï¿½~" << endl;
+        else    cout << "ï¿½ï¿½ï¿½~" << endl;
     }
     return 0;
 }
+
